@@ -27,12 +27,12 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+[screenshot.png](https://postimg.cc/QHgj8Wmf)
 
 ### Links
 
-- Solution URL: [Github]()
-- Live Site URL: [Live Github]()
+- Solution URL: [Github](https://github.com/cmb347827/project-tracking-intro-component-master-github.io)
+- Live Site URL: [Live Github](https://cmb347827.github.io/project-tracking-intro-component-master-github.io/)
 
 ## My process
 

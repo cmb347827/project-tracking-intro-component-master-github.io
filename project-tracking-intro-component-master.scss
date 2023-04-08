@@ -1,6 +1,4 @@
-//beautified at https://codebeautify.org/scss-beautifier 
-
-@import 'custom.scss';
+@import "custom.scss";
 
 $container__form-xs: 375;
 $container__form-xxl: 1440;
@@ -10,18 +8,17 @@ $font_size: 16px;
 $font_weight-normal: 400;
 $font_weight-Bold: 700;
 
-
 $colors: (
-   Red: hsl(0, 100%, 68%),
-   Very Dark Blue: hsl(230, 29%, 20%),
-   Dark Grayish Blue: hsl(230, 11%, 40%),
-   Grayish Blue: hsl(231, 7%, 65%),
-   Light Grayish Blue: hsl(207, 33%, 95%),
-   Lighter Gray: hsl(11, 2%, 95%),
-   White: hsl(11, 1%, 100%),
+  Red: hsl(0, 100%, 68%),
+  Very Dark Blue: hsl(230, 29%, 20%),
+  Dark Grayish Blue: hsl(230, 11%, 40%),
+  Grayish Blue: hsl(231, 7%, 65%),
+  Light Grayish Blue: hsl(207, 33%, 95%),
+  Lighter Gray: hsl(11, 2%, 95%),
+  White: hsl(11, 1%, 100%),
 );
 $fallback-colors: (
-   Crimson MidnightBlue CadetBlue LightSteelBlue PowderBlue Gray95 Snow
+  Crimson MidnightBlue CadetBlue LightSteelBlue PowderBlue Gray95 Snow
 );
 
 @mixin font-color($color, $fallback-color) {
@@ -63,130 +60,148 @@ body {
   width: 100vw;
   height: 100vh;
   overflow: auto;
-  font: $font_weight-normal 16px 'Barlow', sans-serif;
+  font: $font_weight-normal 16px "Barlow", sans-serif;
 }
 
+main {
+  overflow: auto;
+  width: 100%;
+  display: grid;
+  min-height: 100vh;
+  place-content: center;
+  @include bg-color(
+    lighten(map-get($colors, Lighter Gray), 1),
+    nth($fallback-colors, 6)
+  );
 
-main {  
-     overflow: auto;
-     width: 100%;
-     display: grid;
-     min-height: 100vh;
-     place-content: center;
-     @include bg-color(lighten(map-get($colors,Lighter Gray),1),nth($fallback-colors,6));
-	 
-    .container {
-	   @include bg-color(map-get($colors,White),nth($fallback-colors,7));
-	   
-	   
-       div.row:nth-of-type(2){
-	        position:relative;
-			div{
-			  position:relative;
-			  
-			}
-			a{
-			  text-decoration: none;
-			  @include font-color(map-get($colors,Very Dark Blue),nth($fallback-colors,2));
-			  font-family: 'Barlow Condensed', sans-serif;
-			  &:hover{
-			      text-decoration: underline;
-			  }
-			  &.font{
-			     @include font-color(map-get($colors,Grayish Blue),nth($fallback-colors,4));
-			  }
-			}
-			
-	   }
-       div.row:nth-of-type(3){
-	       span{
-			      width: 60px;
-				  height: 40px;
-				  @include padding(14px 14px 6px 14px);
-				  @include border-radius(18px);
-				  @include bg-color(map-get($colors,Very Dark Blue),nth($fallback-colors,2));
-				  @include font-color(map-get($colors,White),nth($fallback-colors,7));
-				  font-weight: $font_weight-Bold;
-			   }
-		   h1{
-		      font: $font_weight-Bold 'Barlow Condensed', sans-serif;
-			  
-		   }
-		   h5{
-		      @include font-color(map-get($colors,Grayish Blue),nth($fallback-colors,4));
-			  font: $font_weight-Bold 'Barlow Condensed', sans-serif;
-		   }
-		   a {
-		      text-decoration: none;
-			  @include font-color(map-get($colors,Grayish Blue),nth($fallback-colors,4));
-			  font-family: 'Barlow Condensed', sans-serif;
-		   }
-	       img{
-		     z-index: 99;
-		   }
-		   button{
-		     @include bg-color(map-get($colors,Red),nth($fallback-colors,1));
-			 font-weight: $font_weight-Bold;
-			 border:none;
-			 &:hover{
-			    @include bg-color(lighten(map-get($colors,Red),4),nth($fallback-colors,1));
-			 }
-		   }
-	   }
-	   
-       @media screen and (max-width: $container__form-xxl-min * 1px){
-	        @include padding(12px);
-	        .ui-menu,.close{
-			   display:none;
-			}
-			#blue-background{
-			   display:inline-block;
-			   position:absolute;
-	           width: (375px / 2);
-			   height: 300px;
-			   @include bg-color(map-get($colors,Light Grayish Blue),nth($fallback-colors,5));
-			   @include border-radius(0 0 0 22px);
-			   transform: translateX(165px);
-	        }
-			.toggle{
-			   display: block;
-			}
-	        @include width($container__form-xs);
-	   }
-	   
-	   @media screen and (min-width: $container__form-xxl * 1px){
-	        @include padding(0 25px);
-	        .ui-menu{
-			   display:flex;
-			}
-			.toggle{
-			   display: none;
-			}
-			#blue-background{
-			   display:inline-block;
-			   position:absolute;
-	           width: (1440px / 2);
-			   height: 320px;
-			   @include bg-color(map-get($colors,Light Grayish Blue),nth($fallback-colors,5));
-			   @include border-radius(0 0 0 22px);
-			   transform: translateX(800px);
-	        }
-			div.row:nth-of-type(2){
-			   @include padding(40px 0 0 0);
-			}
-			div.row:nth-of-type(3){
-			   
-	           img{
-			       @include margin(0 -370px 0 0);
-			   }
-	       }
-	       @include width($container__form-xxl);
-	   }
-        
-    
+  .container {
+    @include bg-color(map-get($colors, White), nth($fallback-colors, 7));
+
+    div.row:nth-of-type(2) {
+      position: relative;
+      div {
+        position: relative;
+      }
+      a {
+        text-decoration: none;
+        @include font-color(
+          map-get($colors, Very Dark Blue),
+          nth($fallback-colors, 2)
+        );
+        font-family: "Barlow Condensed", sans-serif;
+        &:hover {
+          text-decoration: underline;
+        }
+        &.font {
+          @include font-color(
+            map-get($colors, Grayish Blue),
+            nth($fallback-colors, 4)
+          );
+        }
+      }
     }
-    
-  
+    div.row:nth-of-type(3) {
+      span {
+        width: 60px;
+        height: 40px;
+        @include padding(14px 14px 6px 14px);
+        @include border-radius(18px);
+        @include bg-color(
+          map-get($colors, Very Dark Blue),
+          nth($fallback-colors, 2)
+        );
+        @include font-color(map-get($colors, White), nth($fallback-colors, 7));
+        font-weight: $font_weight-Bold;
+      }
+      h1 {
+        font: $font_weight-Bold "Barlow Condensed", sans-serif;
+      }
+      h5 {
+        @include font-color(
+          map-get($colors, Grayish Blue),
+          nth($fallback-colors, 4)
+        );
+        font: $font_weight-Bold "Barlow Condensed", sans-serif;
+      }
+      a {
+        text-decoration: none;
+        @include font-color(
+          map-get($colors, Grayish Blue),
+          nth($fallback-colors, 4)
+        );
+        font-family: "Barlow Condensed", sans-serif;
+      }
+      img {
+        z-index: 99;
+      }
+      button {
+        @include bg-color(map-get($colors, Red), nth($fallback-colors, 1));
+        font-weight: $font_weight-Bold;
+        border: none;
+        &:hover {
+          @include bg-color(
+            lighten(map-get($colors, Red), 4),
+            nth($fallback-colors, 1)
+          );
+        }
+      }
+    }
+
+    @media screen and (max-width: $container__form-xxl-min * 1px) {
+      @include padding(12px);
+      .ui-menu,
+      .close {
+        display: none;
+      }
+      #blue-background {
+        display: inline-block;
+        position: absolute;
+        width: (375px / 2);
+        height: 300px;
+        @include bg-color(
+          map-get($colors, Light Grayish Blue),
+          nth($fallback-colors, 5)
+        );
+        @include border-radius(0 0 0 22px);
+        transform: translateX(165px);
+      }
+      .toggle {
+        display: block;
+      }
+      @include width($container__form-xs);
+    }
+
+    @media screen and (min-width: $container__form-xxl * 1px) {
+      @include padding(0 25px);
+      .ui-menu {
+        display: flex;
+      }
+      .toggle {
+        display: none;
+      }
+      #blue-background {
+        display: inline-block;
+        position: absolute;
+        width: (1440px / 2);
+        height: 320px;
+        @include bg-color(
+          map-get($colors, Light Grayish Blue),
+          nth($fallback-colors, 5)
+        );
+        @include border-radius(0 0 0 22px);
+        transform: translateX(800px);
+      }
+      div.row:nth-of-type(2) {
+        @include padding(40px 0 0 0);
+      }
+      div.row:nth-of-type(3) {
+        img {
+          @include margin(0 -370px 0 0);
+        }
+      }
+      @include width($container__form-xxl);
+    }
+  }
 }
 
 footer {
